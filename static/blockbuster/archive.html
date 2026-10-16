@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blockbuster — Video Archive</title>
+<style>
+  :root {
+    --bg: #0a0a1a;
+    --card: #141428;
+    --yellow: #f5c518;
+    --text: #e8e8f0;
+    --muted: #8a8aa0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a3a, #0f0f22);
+    border: 2px solid var(--yellow);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(90deg, transparent 0 14px, rgba(245,197,24,0.04) 14px 15px);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.08em;
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(245,197,24,0.3);
+  }
+  .header .tagline {
+    color: var(--muted);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .header .rewind {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border: 1px dashed var(--yellow);
+    border-radius: 999px;
+    color: var(--yellow);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+  .count {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .edition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid #23233a;
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+  }
+  .edition:active { transform: scale(0.99); }
+  .edition:hover {
+    transform: translateX(4px);
+    border-color: var(--yellow);
+    background: #181834;
+  }
+  .edition .date { font-weight: 700; font-size: 1.15rem; letter-spacing: 0.02em; color: var(--yellow); }
+  .edition .meta { color: var(--muted); font-size: 0.82rem; }
+  .edition .arrow { color: var(--yellow); font-size: 1.3rem; flex-shrink: 0; }
+  .edition.is-latest {
+    border-color: var(--yellow);
+    box-shadow: 0 0 14px rgba(245,197,24,0.12);
+  }
+  .edition .badge {
+    background: var(--yellow);
+    color: #0a0a1a;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+  .footer .yellow { color: var(--yellow); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>Blockbuster</h1>
+      <div class="tagline">Weekly Streaming Digest · Archive</div>
+      <div class="rewind">BE KIND · REWIND</div>
+    </div>
+
+    <div class="count">18 editions</div>
+
+    <a class="edition is-latest" href="blockbuster_2026-10-16.html">
+      <div>
+        <div class="date"><span class="day">Oct 16</span>, 2026</div>
+        <div class="meta">Latest edition</div>
+      </div>
+      <span class="badge">Latest</span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-10-09.html">
+      <div>
+        <div class="date"><span class="day">Oct 9</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-10-02.html">
+      <div>
+        <div class="date"><span class="day">Oct 2</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-09-25.html">
+      <div>
+        <div class="date"><span class="day">Sep 25</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-09-18.html">
+      <div>
+        <div class="date"><span class="day">Sep 18</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-09-11.html">
+      <div>
+        <div class="date"><span class="day">Sep 11</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-09-05.html">
+      <div>
+        <div class="date"><span class="day">Sep 5</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-08-28.html">
+      <div>
+        <div class="date"><span class="day">Aug 28</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-08-21.html">
+      <div>
+        <div class="date"><span class="day">Aug 21</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-08-14.html">
+      <div>
+        <div class="date"><span class="day">Aug 14</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-08-07.html">
+      <div>
+        <div class="date"><span class="day">Aug 7</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-07-31.html">
+      <div>
+        <div class="date"><span class="day">Jul 31</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-07-24.html">
+      <div>
+        <div class="date"><span class="day">Jul 24</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-07-17.html">
+      <div>
+        <div class="date"><span class="day">Jul 17</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-07-11.html">
+      <div>
+        <div class="date"><span class="day">Jul 11</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-07-10.html">
+      <div>
+        <div class="date"><span class="day">Jul 10</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_2026-07-03.html">
+      <div>
+        <div class="date"><span class="day">Jul 3</span>, 2026</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="edition" href="blockbuster_june27.html">
+      <div>
+        <div class="date"><span class="day">Jun 27</span>, 2026</div>
+        <div class="meta">First edition</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <div class="footer">Powered by <span class="yellow">The Machine</span> · Be kind, rewind</div>
+  </div>
+</body>
+</html>

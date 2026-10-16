@@ -79,10 +79,10 @@ def build_nav(newer, older):
     def link(label, name):
         if name is None:
             return f'<span class="disabled">{label}</span>'
-        return f'<a href="/blockbuster/{name}.html">{label}</a>'
+        return f'<a href="{name}.html">{label}</a>'
     return (
         '<div class="edition-nav">\n'
-        f'  <a href="/blockbuster/">{LARROW} All Editions</a>\n'
+        f'  <a href="archive.html">{LARROW} All Editions</a>\n'
         '  <div class="nav-group">\n'
         f'    {link(LARROW + " Newer", newer)}\n'
         f'    {link("Older " + RARROW, older)}\n'
@@ -171,7 +171,6 @@ def build_index(eds):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<base href="/blockbuster/">
 <title>Blockbuster \u2014 Video Archive</title>
 <style>
   :root {{
@@ -301,6 +300,24 @@ def build_index(eds):
 </body>
 </html>
 """
+    with open(os.path.join(DEST_DIR, "archive.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+
+
+def build_redirect(eds):
+    """index.html sends visitors straight to the latest edition."""
+    latest = eds[0][1] + ".html"
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="0; url={latest}">
+<title>Blockbuster</title>
+<script>location.replace("{latest}");</script>
+</head>
+<body><a href="{latest}">Latest edition</a> \u00b7 <a href="archive.html">All editions</a></body>
+</html>
+"""
     with open(os.path.join(DEST_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
 
@@ -335,7 +352,8 @@ def main():
 
     n = inject_nav(eds)
     build_index(eds)
-    print(f"Nav injected on {n}/{len(eds)} editions; index.html rebuilt.")
+    build_redirect(eds)
+    print(f"Nav injected on {n}/{len(eds)} editions; archive.html and index.html rebuilt.")
     print(f"Archive: {PUBLIC_URL}  (latest: {eds[0][1]})")
     return 0
 
