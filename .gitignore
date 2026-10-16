@@ -1,0 +1,14 @@
+# Secrets — never commit real keys
+.env
+
+# Poster downloads (intermediate source JPEGs; editions embed posters inline)
+posters/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
