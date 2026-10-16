@@ -11,7 +11,7 @@ def register_blockbuster_routes(app):
     @app.route("/blockbuster")
     @app.route("/blockbuster/")
     def blockbuster_index():
-        # index.html is the auto-generated archive navigation (see publish.py)
+        # index.html redirects to the latest edition; archive.html lists all (see publish.py)
         return send_from_directory("static/blockbuster", "index.html", max_age=300)
 
     @app.route("/blockbuster/<path:filename>")
