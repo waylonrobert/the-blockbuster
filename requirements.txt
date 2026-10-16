@@ -1,0 +1,2 @@
+# The only Python dependency. publish.py and build_edition.py are stdlib-only.
+Pillow>=10.0
